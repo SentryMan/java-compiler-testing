@@ -21,7 +21,12 @@ jobs:
       fail-fast: false
       matrix:
         java-version: [GA, EA]
-        os-name: [ubuntu-latest]
+        os-name: [ubuntu-latest]        
+        include:
+          - os-name: macos-latest
+            java-version: GA
+          - os-name: windows-latest
+            java-version: GA
 
     steps:
       - name: Checkout repository
