@@ -25,11 +25,6 @@ jobs:
         java-version:
           - GA  # Latest GA JDK
           - EA  # Current Mainline
-        include:
-          - os-name: ubuntu-latest
-            java-version: GA
-          - os-name: windows-latest
-            java-version: GA
 
     steps:
       - name: Checkout repository
