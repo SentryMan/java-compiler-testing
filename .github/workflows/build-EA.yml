@@ -21,10 +21,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os-name: [ubuntu-latest]
-        java-version:
-          - GA  # Latest GA JDK
-          - EA  # Current Mainline
+        java_version: [GA,EA]
+        os: [ubuntu-latest]
 
     steps:
       - name: Checkout repository
@@ -33,6 +31,7 @@ jobs:
           fetch-depth: 2
 
       - name: Initialize JDK
+
         uses: oracle-actions/setup-java@v1
         with:
           website: jdk.java.net
