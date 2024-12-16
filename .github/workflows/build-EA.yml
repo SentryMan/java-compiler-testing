@@ -14,15 +14,14 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  build:
-    name: Build on JDK ${{ matrix.java-version }} (${{ matrix.os-name }})
+  build: 
     runs-on: ${{ matrix.os-name }}
-
+    name: Build on JDK ${{ matrix.java-version }} (${{ matrix.os-name }})
     strategy:
       fail-fast: false
       matrix:
-        java_version: [GA,EA]
-        os: [ubuntu-latest]
+        java-version: [GA, EA]
+        os-name: [ubuntu-latest]
 
     steps:
       - name: Checkout repository
@@ -35,7 +34,7 @@ jobs:
         uses: oracle-actions/setup-java@v1
         with:
           website: jdk.java.net
-          release: ${{ matrix.java_version }}
+          release: ${{ matrix.java-version }}
 
       - name: Compile and run tests
         shell: bash
